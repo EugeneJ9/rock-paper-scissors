@@ -1,3 +1,6 @@
+let computerScore = 0;
+let userScore = 0;
+
 function playRound() {
   function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * 3);
@@ -25,17 +28,23 @@ function playRound() {
     return "Tie!"
 
   } else if (computerSelection === 'rock' && playerSelection ==='scissors') {
-    return "You Lose! Rock beats scissors";
+      computerScore++;
+      return "You Lose! Rock beats scissors";
   } else if (computerSelection === 'rock' && playerSelection ==='paper') {
-    return "You Win! Paper beats rock";
+      userScore++;
+      return "You Win! Paper beats rock";
   } else if (computerSelection === 'paper' && playerSelection ==='rock') {
-    return "You Lose! Paper beats rock";
+      computerScore++;
+      return "You Lose! Paper beats rock";
   } else if (computerSelection === 'paper' && playerSelection ==='scissors') {
-    return "You Win! Scissors beats paper";
+      userScore++;
+      return "You Win! Scissors beats paper";
   } else if (computerSelection === 'scissors' && playerSelection ==='paper') {
-    return "You Lose! Scissors beats paper";
+      computerScore++;
+      return "You Lose! Scissors beats paper";
   } else if (computerSelection === 'scissors' && playerSelection ==='rock') {
-    return "You Won! Rock beats scissors";
+      userScore++;
+      return "You Won! Rock beats scissors";
   }
 }
 
@@ -43,6 +52,14 @@ function playRound() {
 function game() {
   for (i = 0; i < 5; i++) {
     console.log(playRound())
+  }
+  console.log('Total computer score: ', computerScore,', total user score: ', userScore);
+  if (userScore > computerScore) {
+    console.log('You WIN the game!');
+  } else if (userScore < computerScore) {
+    console.log('You LOSE the game!');
+  } else {
+    console.log('Total TIE!');
   }
 }
 
