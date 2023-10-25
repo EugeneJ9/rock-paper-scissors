@@ -1,26 +1,26 @@
-function getComputerChoice() {
-  let randomNumber = Math.floor(Math.random() * 3);
-
-  if (randomNumber === 0) {
-    return 'rock';    
-  } else if (randomNumber === 1) {
-    return 'paper';    
-  } else {
-    return 'scissors';
-  }
-}
-let computerSelection = getComputerChoice();
-console.log(computerSelection);
-
-function getPlayerChoice() {
-  let playerChoice = prompt("Please enter ‘Rock’, ‘Paper’ or ‘Scissors’").toLowerCase();
-  return playerChoice;
-}
-
-let playerSelection = getPlayerChoice();
-console.log(playerSelection);
-
 function playRound() {
+  function getComputerChoice() {
+    let randomNumber = Math.floor(Math.random() * 3);
+  
+    if (randomNumber === 0) {
+      return 'rock';    
+    } else if (randomNumber === 1) {
+      return 'paper';    
+    } else {
+      return 'scissors';
+    }
+  }
+  let computerSelection = getComputerChoice();
+  console.log(computerSelection);
+
+  function getPlayerChoice() {
+    let playerChoice = prompt("Please enter ‘Rock’, ‘Paper’ or ‘Scissors’").toLowerCase();
+    return playerChoice;
+  }
+  
+  let playerSelection = getPlayerChoice();
+  console.log(playerSelection);
+
   if (computerSelection === playerSelection) {
     return "Tie!"
 
@@ -39,4 +39,11 @@ function playRound() {
   }
 }
 
-console.log(playRound(playerSelection, computerSelection))
+
+function game() {
+  for (i = 0; i < 5; i++) {
+    console.log(playRound())
+  }
+}
+
+game();
